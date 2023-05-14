@@ -60,8 +60,6 @@ public class TestingWebApplicationTests {
                 .andReturn();
     }
 
-
-
     @Test
     public void gettingAnError_whenNegativeSalaryIsEntered() throws Exception {
         RequestController requestController = new RequestController(vacationPayCalculationService);

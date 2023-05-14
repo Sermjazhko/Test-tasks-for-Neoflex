@@ -16,12 +16,12 @@ public class VacationPayCalculationServiceImpl implements VacationPayCalculation
             amountVacationPay = (request.getAverageSalary() / AVERAGE_NUMBER_DAYS) *
                         request.getNumberVacationDays();
             amountVacationPay = Math.ceil(amountVacationPay * 100) / 100;
-
         }
         else { //можно, конечно, создать отдельную html с подробной ошибкой, если важно оповестить и в браузере
             throw new IllegalArgumentException("Incorrectly entered values. " +
                         "The salary must be greater than 0, and the number of vacation days is acceptable.");
         }
+
         return amountVacationPay;
     }
 }

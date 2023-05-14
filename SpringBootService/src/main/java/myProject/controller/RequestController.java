@@ -20,12 +20,14 @@ public class RequestController {
     public ResponseEntity<Double> getAllBuyers(@RequestParam("averageSalary") Double averageSalary,
                                                @RequestParam("vacationDays") Integer vacationDays) {
         Request request = new Request(vacationDays, averageSalary);
+
         try {
             Double answer = vacationPayCalculationService.calculateAmountVacationPay(request);
 
             return new ResponseEntity<>(answer, HttpStatus.OK);
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
+
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
